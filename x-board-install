@@ -10,10 +10,16 @@ if [ "$#" -lt 1 ] || [ "$#" -gt 2 ] || [ $1 != digispark ] || ( [ -n "$2" ] && [
     exit -1
 fi
 
-if [ -z "$2" ] || [ $2 == detect-version ]; then
-    echo "To be implemented!"
+
+if [ -z "$2" ]; then
+    ./micronucleus images/digispark/main.hex
+    exit
 fi
 
 if [ $2 == bootloader ]; then
     ./micronucleus images/digispark/bootloader.hex
+fi
+
+if [ $2 == detect-version ]; then
+    echo "To be implemented!"
 fi
