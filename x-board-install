@@ -21,5 +21,5 @@ if [ $2 == bootloader ]; then
 fi
 
 if [ $2 == identify-model ]; then
-    echo "To be implemented!"
+    ./micronucleus images/digispark/identify-model.hex
 fi
