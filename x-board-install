@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ] || [ $1 != digispark ] || ( [ -n "$2" ] && [ $2 != bootloader ] && [ $2 != detect-version ] ); then
+    echo ""
+    echo "x-board-install expects a command the following format:"
+    echo ""
+    echo "x-board-install digispark [bootloader|detect-version]"
+    echo ""
+    
+    exit -1
+fi
+
+echo "To be implemented!"
