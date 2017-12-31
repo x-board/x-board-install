@@ -15,7 +15,14 @@ Step 1: Installing x-board-package
 First, we need to get the tools on the CHIP. Log in to the CHIP and issue the following
 commands:
 
-    sudo apt-get install git
+    wget https://github.com/x-board/x-board-package/archive/v0.1.0.tar.gz
+    tar -xvzf v0.1.0.tar.gz
+    cd x-board-package-0.1.0
+
+Alternatively, you can use git to get the latest version rather than a specific version
+(note that the package repository isn't always updated to include the newest versions of
+the other projects, though). Make sure you have git installed, then run:
+
     git clone https://github.com/x-board/x-board-package
     cd x-board-package
 
