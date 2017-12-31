@@ -28,7 +28,9 @@ of the bootloader.
 
 The easiest way to do this is to use a USB hub. I used one of the cheapest hubs off 
 AliExpress myself, which you can buy for under $1 and some waiting. However, most USB 2.0
-hubs should work.
+hubs should work. If you don't have a USB hub available or the one you have isn't working,
+the alternative is to update the bootloader from another computer, which is a process I'll
+describe below.
 
 The process is pretty simple. Just plug the hub into your CHIP and execute the following:
 
@@ -41,6 +43,56 @@ longer. The on-board LED will flash when it's done installing itself.
 
 Note: don't forget the execute the statement as root. If you do, it will appear to work,
 but it won't be able to find your Digispark, so it will be stuck waiting forever.
+
+### Updating from another computer ###
+
+Alternatively, you can update the bootloader from another computer. There are several options,
+which vary in the amount of work it takes.
+
+#### Raspberry pi (or another ARM device) ####
+
+This was tested on a Raspberry Pi 3B, but should work on any ARM device running a 32 bit OS,
+or an OS that has multi-arch support. Any other ARM devices can still use the "any linux" method
+described below. (Of course, similar to how the CHIP doesn't work, another device might also not
+work.)
+
+You can simply use the same method as on the CHIP. (You can skip the first two commands if you
+already have git installed or you can substitute the first three commands by downloading
+x-board-package in a different way.)
+
+    sudo apt-get update
+    sudo apt-get install git
+    git clone https://github.com/x-board/x-board-package
+    cd x-board/x-board-package
+    sudo ./x-board-install digispark bootloader
+
+Then, just plug in the Digispark, and everything should work.
+
+#### Windows ####
+
+Download the x-board-package and put it somewhere on your system. Then run 
+`x-board-package/windows/upgrade-bootloader.bat`. Then plug in your Digispark.
+
+#### Any linux system ####
+
+I don't provide a micronucleus binary for any other platforms, so you will have to compile it
+yourself. Luckily, that's not too hard. First, make sure that `git` and `libusb-dev` are installed
+(e.g. `sudo apt-get install git libusb-dev`, then run the following:
+
+    git clone https://github.com/x-board/x-board-package
+    git clone https://github.com/micronucleus/micronucleus
+    cd micronucleus/commandline
+    make
+    sudo ./micronucleus ../../x-board-package/images/bootloader.hex
+
+Then plug in the Digispark and hopefully everything just works.
+
+#### Mac OS X ####
+
+I don't have access to a Mac system, but I'd imagine the process would be similar to the 
+"any linux" above. Actually, I have heard that on Mac you can simply execute the last command
+without root access and it will still work.
+    
 
 Step 3: Identifying your model
 ------------------------------
