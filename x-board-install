@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#
+# This file is governed by the MITA license
+# which can be found as MITA.LICENSE in the root of this project
+# (or alternative at mita.jasperhorn.nl)
+#
+
 if [ "$#" -lt 1 ] || [ "$#" -gt 2 ] || [ $1 != digispark ] || ( [ -n "$2" ] && [ $2 != bootloader ] && [ $2 != identify-model ] && [ $2 != identify-pins ] ); then
     echo ""
     echo "x-board-install expects a command the following format:"
