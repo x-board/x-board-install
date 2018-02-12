@@ -152,7 +152,7 @@ Using x-board
 With the board installed now, you can start using the x-board tool to drive its pins. For power,
 either plug the Digispark into the CHIP's USB port, or connect CHIP's VCC-5V to the Digispark's 5V
 pin and connect GND to GND. Next, you need to connect the wires for I2C communication. To do this,
-connect CHIP's TWI2-SCK to P1 on the Digispark and TWI2-SDA to P0. Then, you can simply run the 
+connect CHIP's TWI2-SCK to P2 on the Digispark and TWI2-SDA to P0. Then, you can simply run the 
 following to see how to use the x-board tool.
 
     ./x-board
